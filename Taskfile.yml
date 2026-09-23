@@ -1,0 +1,94 @@
+# https://taskfile.dev
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task --list
+    silent: true
+
+  check:
+    desc: Run all checks (fmt, vet, test)
+    cmds:
+      - task: fmt
+      - task: vet
+      - task: test
+
+  fmt:
+    desc: Format Go code
+    cmds:
+      - go fmt ./...
+      - go fix ./...
+
+  lint:
+    desc: Run golangci-lint
+    cmds:
+      - golangci-lint run ./...
+
+  vet:
+    desc: Run go vet
+    cmds:
+      - go vet ./...
+
+  test:
+    desc: Run all Go tests
+    cmds:
+      - go test ./...
+
+  run:
+    desc: Run the web app against the attached logger (http://localhost:1350)
+    cmds:
+      - go run ./cmd/elitelog serve
+
+  info:
+    desc: Print the attached logger's state
+    cmds:
+      - go run ./cmd/elitelog info
+
+  records:
+    desc: Print the logger's records as CSV (LAST=n for the most recent n)
+    vars:
+      LAST: '{{.LAST | default "0"}}'
+    cmds:
+      - go run ./cmd/elitelog records -last {{.LAST}}
+
+  udev:install:
+    desc: Install the udev rule that grants access to the logger (needs sudo)
+    cmds:
+      - sudo cp 99-elitech.rules /etc/udev/rules.d/
+      - sudo udevadm control --reload
+      - sudo udevadm trigger --subsystem-match=hidraw
+
+  install:
+    desc: Install elitelog to $GOPATH/bin
+    vars:
+      VERSION:
+        sh: git describe --tags --always --dirty 2>/dev/null || echo "dev"
+    cmds:
+      - go install -ldflags "-X main.version={{.VERSION}}" ./cmd/elitelog
+
+  deps:tidy:
+    desc: Tidy Go modules
+    cmds:
+      - go mod tidy
+
+  clean:
+    desc: Remove build output
+    cmds:
+      - rm -rf dist
+
+  docs:screenshots:
+    desc: Capture page screenshots from a running logger into docs/screenshots (needs the logger attached)
+    cmds:
+      - mkdir -p docs/screenshots
+      - |
+        go run ./cmd/elitelog serve -addr 127.0.0.1:1352 &
+        SERVER_PID=$!
+        trap "kill $SERVER_PID 2>/dev/null" EXIT
+        for i in $(seq 1 40); do
+          curl -sf http://127.0.0.1:1352/favicon.ico > /dev/null 2>&1 && break
+          sleep 0.5
+        done
+        url2svg -url http://127.0.0.1:1352/ -o docs/screenshots/device.svg
+        url2svg -url "http://127.0.0.1:1352/records?last=100" -o docs/screenshots/records.svg
+        url2svg -url http://127.0.0.1:1352/monitor -o docs/screenshots/monitor.svg

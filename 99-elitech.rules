@@ -1,0 +1,4 @@
+# Elitech USB temperature data loggers (FMSH "MSC+HID" generation, e.g. RC-5).
+# Grants the logged-in desktop user access to the HID control interface.
+# Install: sudo cp 99-elitech.rules /etc/udev/rules.d/ && sudo udevadm control --reload && replug the logger
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="246c", ATTRS{idProduct}=="9001", TAG+="uaccess", MODE="0660", GROUP="plugdev"

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="768" viewBox="0 0 1024 768">
+  <defs>
+    <filter id="shadow1" x="-0.7" y="-0.7" width="2.4" height="2.4">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feFlood flood-color="rgb(9,10,12)" flood-opacity="0.1"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow2" x="-0.5" y="-0.5" width="2" height="2">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0"/>
+      <feOffset dx="0" dy="0" result="offsetblur"/>
+      <feFlood flood-color="rgb(9,10,12)" flood-opacity="0"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="1024" height="768" fill="white"/>
+  <rect x="0" y="0" width="1009" height="52" fill="rgb(0,209,178)"/>
+  <text x="12" y="31.4" fill="rgb(0,31,26)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16" font-weight="700">Elitech logger</text>
+  <a xlink:href="http://127.0.0.1:1352/">
+    <text x="140.8" y="31.4" fill="rgb(0,31,26)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Device</text>
+  </a>
+  <a xlink:href="http://127.0.0.1:1352/records">
+    <text x="212.9" y="31.4" fill="rgb(0,31,26)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Records</text>
+  </a>
+  <a xlink:href="http://127.0.0.1:1352/monitor">
+    <text x="294.8" y="31.4" fill="rgb(0,31,26)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Monitor</text>
+  </a>
+  <text x="747.2" y="31.4" fill="rgb(0,31,26)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">elitelog dev built 2026-09-23 15:15</text>
+  <text x="48" y="128.8" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="32" font-weight="800">Monitor</text>
+  <rect x="178.4" y="109.7" width="126.4" height="24" rx="6" fill="rgb(243,244,246)"/>
+  <text x="187.4" y="125.1" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="12" font-weight="800">refreshes every 5 s</text>
+  <rect x="48" y="160" width="913" height="128" rx="6" fill="rgb(72,199,142)"/>
+  <text x="72" y="210.8" fill="rgb(10,31,21)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="32" font-weight="800">Recording</text>
+  <text x="72" y="259.4" fill="rgb(10,31,21)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">since 2026-09-23 14:58:34 (17m)</text>
+  <rect x="50" y="314" width="909" height="116" rx="12" fill="rgb(9,10,12)" filter="url(#shadow1)"/>
+  <rect x="47" y="311" width="915" height="122" rx="12" fill="rgb(9,10,12)" filter="url(#shadow2)"/>
+  <rect x="48" y="312" width="913" height="120" rx="12" fill="rgb(255,255,255)"/>
+  <text x="68" y="349.4" fill="rgb(64,70,84)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Latest reading</text>
+  <text x="68" y="384.8" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="32" font-weight="800">25.6 °C</text>
+  <text x="185.6" y="384.8" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="32" font-weight="800">52.0 %</text>
+  <text x="177.7" y="384.8" fill="rgb(105,116,140)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="32" font-weight="800">·</text>
+  <text x="68" y="407.4" fill="rgb(64,70,84)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">logged 2026-09-23 15:12:54 (2m ago)</text>
+  <rect x="48" y="456" width="391.2" height="328" fill="rgb(255,255,255)"/>
+  <rect x="48" y="456" width="220.1" height="41" fill="none"/>
+  <line x1="48" y1="497" x2="268.1" y2="497" stroke="rgb(214,217,224)" stroke-width="2"/>
+  <text x="60" y="481.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16" font-weight="700">Field</text>
+  <rect x="268.1" y="456" width="171.1" height="41" fill="none"/>
+  <line x1="268.1" y1="497" x2="439.2" y2="497" stroke="rgb(214,217,224)" stroke-width="2"/>
+  <text x="280.1" y="481.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16" font-weight="700">Value</text>
+  <rect x="48" y="497" width="220.1" height="41.5" fill="none"/>
+  <line x1="48" y1="538.5" x2="268.1" y2="538.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="60" y="523.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Records</text>
+  <rect x="268.1" y="497" width="171.1" height="41.5" fill="none"/>
+  <line x1="268.1" y1="538.5" x2="439.2" y2="538.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="280.1" y="523.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">87 of 32000</text>
+  <rect x="48" y="538.5" width="391.2" height="41" fill="rgb(249,250,251)"/>
+  <rect x="48" y="538.5" width="220.1" height="41" fill="none"/>
+  <line x1="48" y1="579.5" x2="268.1" y2="579.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="60" y="564.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Sampling interval</text>
+  <rect x="268.1" y="538.5" width="171.1" height="41" fill="none"/>
+  <line x1="268.1" y1="579.5" x2="439.2" y2="579.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="280.1" y="564.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">10s</text>
+  <rect x="48" y="579.5" width="220.1" height="41" fill="none"/>
+  <line x1="48" y1="620.5" x2="268.1" y2="620.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="60" y="605.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Temperature min / max (°C)</text>
+  <rect x="268.1" y="579.5" width="171.1" height="41" fill="none"/>
+  <line x1="268.1" y1="620.5" x2="439.2" y2="620.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="280.1" y="605.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">25.6 / 28.3</text>
+  <rect x="48" y="620.5" width="391.2" height="41" fill="rgb(249,250,251)"/>
+  <rect x="48" y="620.5" width="220.1" height="41" fill="none"/>
+  <line x1="48" y1="661.5" x2="268.1" y2="661.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="60" y="646.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Humidity min / max</text>
+  <rect x="268.1" y="620.5" width="171.1" height="41" fill="none"/>
+  <line x1="268.1" y1="661.5" x2="439.2" y2="661.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="280.1" y="646.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">47.6 / 68.1</text>
+  <rect x="48" y="661.5" width="220.1" height="41" fill="none"/>
+  <line x1="48" y1="702.5" x2="268.1" y2="702.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="60" y="687.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Device clock</text>
+  <rect x="268.1" y="661.5" width="171.1" height="41" fill="none"/>
+  <line x1="268.1" y1="702.5" x2="439.2" y2="702.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="280.1" y="687.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">2026-09-23 15:15:21</text>
+  <rect x="48" y="702.5" width="391.2" height="41" fill="rgb(249,250,251)"/>
+  <rect x="48" y="702.5" width="220.1" height="41" fill="none"/>
+  <line x1="48" y1="743.5" x2="268.1" y2="743.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="60" y="728.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Battery</text>
+  <rect x="268.1" y="702.5" width="171.1" height="41" fill="none"/>
+  <line x1="268.1" y1="743.5" x2="439.2" y2="743.5" stroke="rgb(214,217,224)" stroke-width="1"/>
+  <text x="280.1" y="728.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">4 / 15</text>
+  <text x="60" y="769.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">Serial</text>
+  <text x="280.1" y="769.4" fill="rgb(46,51,61)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">EL2605004004</text>
+  <rect x="0" y="832" width="1009" height="168" fill="rgb(249,250,251)"/>
+  <text x="379.6" y="897.4" fill="rgb(64,70,84)" font-family="Inter, &quot;SF Pro&quot;, &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif" font-size="16">elitelog dev built 2026-09-23 15:15</text>
+  <rect x="0" y="0" width="1024" height="768" fill="none" stroke="#ccc" stroke-width="1"/>
+</svg>

@@ -1,0 +1,4 @@
+/docs/**/*.html
+/dist/
+*.wasm
+.task/
