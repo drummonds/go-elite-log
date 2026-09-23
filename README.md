@@ -37,7 +37,7 @@ Monitor page, reloading every 5 s:
 
 Records page with the temperature and humidity charts:
 
-![Records page](docs/screenshots/records.svg)
+![Records page](docs/screenshots/records.png)
 
 Device page with state and settings:
 

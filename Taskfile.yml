@@ -90,5 +90,6 @@ tasks:
           sleep 0.5
         done
         url2svg -url http://127.0.0.1:1352/ -o docs/screenshots/device.svg
-        url2svg -url "http://127.0.0.1:1352/records?last=100" -o docs/screenshots/records.svg
+        # The records page holds inline SVG charts, which url2svg does not capture; raster it instead.
+        chromium --headless=new --disable-gpu --hide-scrollbars --window-size=1024,1400 --screenshot=docs/screenshots/records.png "http://127.0.0.1:1352/records?last=100"
         url2svg -url http://127.0.0.1:1352/monitor -o docs/screenshots/monitor.svg
