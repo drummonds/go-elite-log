@@ -711,10 +711,12 @@ capacity/count, interval, start byte, configure flow, verification).
 Differences:
 
 - **Records are 4 bytes**: `TT TT HH HH`, each a big-endian value in tenths
-  (temperature °C, relative humidity %). `0xFFFF` = no reading; the sign
-  convention is assumed to be python-elitech's `FloatParameter` (bit 15 =
-  negative) and is unverified. A GetRecord reply carries 6 × 4 = 24 data
-  bytes (`LEN 0x24`). Infer the width from `len(data) / N`.
+  (temperature °C, relative humidity %). `0xFFFF` = no reading. **The sign
+  is bit 12** (`0x1000`) with the magnitude in bits 0-11: a logger going
+  into a freezer recorded `00 07`, `00 01`, `10 05`, `10 0B`, `10 10` =
+  0.7, 0.1, -0.5, -1.1, -1.6. This differs from the status space, whose
+  min/mean fields use bit 15 (`80 BC` = -18.8). A GetRecord reply carries
+  6 × 4 = 24 data bytes (`LEN 0x24`). Infer the width from `len(data) / N`.
 - **No per-record timestamp.** Time = start time + index × interval. The
   parameter-space start time at 0x30 keeps the factory placeholder
   `2012-01-01 01:01:01` while recording; the real start time lives in the

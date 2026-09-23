@@ -107,24 +107,40 @@ func decodeRecord(b [8]byte, protocol byte) (Record, error) {
 }
 
 // decodeRecordTH unpacks the 4-byte record of the temperature-and-humidity
-// loggers: temperature then humidity, each a big-endian tenth with 0x8000
-// marking a negative value and 0xFFFF meaning no reading. These records
-// carry no timestamp; the caller derives it from the start time.
+// loggers: temperature then humidity, each a big-endian tenth. In records
+// the sign is bit 12 (0x1000) with an 11-bit magnitude below it (observed
+// on a logger through a freezer: 00 01, 10 05, 10 0B = 0.1, -0.5, -1.1);
+// 0xFFFF means no reading. These records carry no timestamp; the caller
+// derives it from the start time.
 func decodeRecordTH(b [4]byte) (Record, error) {
 	if b == [4]byte{0xFF, 0xFF, 0xFF, 0xFF} {
 		return Record{}, errNoRecord
 	}
-	temp, ok := decodeTenths(b[0], b[1])
+	temp, ok := decodeRecordTenths(b[0], b[1])
 	if !ok {
 		return Record{}, fmt.Errorf("elitech: record % X has no temperature", b[:])
 	}
 	r := Record{Temperature: temp, Status: Measurement}
-	r.Humidity, r.HasHumidity = decodeTenths(b[2], b[3])
+	r.Humidity, r.HasHumidity = decodeRecordTenths(b[2], b[3])
 	return r, nil
 }
 
-// decodeTenths reads a big-endian value in tenths; 0x8000 flags negative
-// and 0xFFFF means absent.
+// decodeRecordTenths is the record encoding: bit 12 negative, low 12 bits
+// magnitude in tenths, 0xFFFF absent.
+func decodeRecordTenths(hi, lo byte) (float64, bool) {
+	v := uint16(hi)<<8 | uint16(lo)
+	if v == 0xFFFF {
+		return 0, false
+	}
+	mag := float64(v&0x0FFF) / 10
+	if v&0x1000 != 0 {
+		return -mag, true
+	}
+	return mag, true
+}
+
+// decodeTenths is the status-space encoding: a big-endian value in tenths
+// with 0x8000 flagging negative (observed: 80 BC = -18.8) and 0xFFFF absent.
 func decodeTenths(hi, lo byte) (float64, bool) {
 	v := uint16(hi)<<8 | uint16(lo)
 	if v == 0xFFFF {

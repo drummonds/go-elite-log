@@ -126,8 +126,31 @@ func TestDecodeRecordTH(t *testing.T) {
 	if _, err := decodeRecordTH([4]byte{0xFF, 0xFF, 0xFF, 0xFF}); !errors.Is(err, errNoRecord) {
 		t.Errorf("sentinel: %v", err)
 	}
-	r, _ = decodeRecordTH([4]byte{0x80, 0x0A, 0xFF, 0xFF})
+	r, _ = decodeRecordTH([4]byte{0x10, 0x0A, 0xFF, 0xFF})
 	if r.Temperature != -1.0 || r.HasHumidity {
 		t.Errorf("negative/no-humidity: %+v", r)
+	}
+}
+
+// Captured from a logger going through a freezer: 0.1, then -0.5, -1.1, -1.6.
+func TestDecodeRecordTHNegativeRun(t *testing.T) {
+	cases := []struct {
+		raw  [4]byte
+		want float64
+	}{
+		{[4]byte{0x00, 0x01, 0x01, 0xC0}, 0.1},
+		{[4]byte{0x10, 0x05, 0x01, 0xCD}, -0.5},
+		{[4]byte{0x10, 0x0B, 0x01, 0xD9}, -1.1},
+		{[4]byte{0x10, 0x10, 0x01, 0xE5}, -1.6},
+		{[4]byte{0x10, 0xBC, 0x03, 0xC0}, -18.8},
+	}
+	for _, c := range cases {
+		r, err := decodeRecordTH(c.raw)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if r.Temperature != c.want {
+			t.Errorf("% X -> %v, want %v", c.raw[:], r.Temperature, c.want)
+		}
 	}
 }
