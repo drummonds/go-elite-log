@@ -77,6 +77,12 @@ tasks:
     cmds:
       - rm -rf dist
 
+  docs:build:
+    desc: Render index.md and PROTOCOL.md into docs/ (screenshots are committed)
+    cmds:
+      - task-plus md2html --file index.md --dst docs
+      - task-plus md2html --file PROTOCOL.md --dst docs
+
   docs:screenshots:
     desc: Capture page screenshots from a running logger into docs/screenshots (needs the logger attached)
     cmds:

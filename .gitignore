@@ -2,3 +2,7 @@
 /dist/
 *.wasm
 .task/
+
+# task-plus private local config (symlink to replicated copy)
+task-plus.local.yaml
+.tp-release-comment

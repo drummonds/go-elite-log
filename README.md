@@ -57,6 +57,7 @@ records.
 <!-- auto:links -->
 | | |
 |---|---|
+| Documentation | https://go-elite-log.docs.bytestone.uk/ |
 | Source | https://git.bytestone.uk/hum3/go-elite-log |
 | Mirror (GitHub) | https://github.com/drummonds/go-elite-log |
 <!-- /auto:links -->
